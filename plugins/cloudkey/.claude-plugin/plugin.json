@@ -1,0 +1,19 @@
+{
+  "name": "cloudkey",
+  "displayName": "CloudKey",
+  "version": "1.0.0",
+  "description": "Phase-based, multi-platform development toolkit for Claude Code. SDLC phase skills (plan, scaffold, implement, test, review, deploy) plus dedicated Shopify, Next.js, AI/LLM, and code-indexing skills and agents.",
+  "author": {
+    "name": "webdevdot",
+    "url": "https://github.com/webdevdot"
+  },
+  "homepage": "https://github.com/webdevdot/cloudkey",
+  "repository": "https://github.com/webdevdot/cloudkey",
+  "license": "MIT",
+  "keywords": ["sdlc", "shopify", "nextjs", "ai", "code-index", "phases", "agents"],
+  "skills": "./skills/",
+  "agents": [
+    "./agents/architect.md",
+    "./agents/indexer.md"
+  ]
+}
