@@ -44,6 +44,11 @@ intermediate results out of context. Run it, then save the run with `/workflows`
 - **indexer** — fast read-only fan-out codebase search.
 - **design-reviewer** — read-only UI/UX critique (a11y, responsiveness, states, composition).
 
+### Bundled MCP
+- **context7** (`@upstash/context7-mcp`) — live, version-correct library docs. Free, no API key for
+  the public tier. Ships with the plugin so it's self-contained: the `nextjs-dev`, `ai-app-dev`, and
+  `design` skills route to it for current API syntax instead of relying on stale training data.
+
 ## Design notes
 - **Phase-based, not a tool dump.** ~12 focused skills instead of hundreds, to avoid tool bloat that
   degrades model tool selection.
