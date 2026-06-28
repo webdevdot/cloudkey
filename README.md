@@ -30,6 +30,14 @@ One plugin, organized by SDLC phase, with dedicated skills for the platforms you
 | `/ai-app-dev` | Claude API, agents, tool use, RAG, prompt design |
 | `/code-index` | Symbol & semantic search before changing code (uses the `indexer` agent) |
 | `/design` | UI/UX: Figma↔code via Figma MCP + web interface best practices (uses `design-reviewer`) |
+| `/audit` | Run a wide, repo-scale task as a **dynamic workflow** (high fan-out, runs in background) |
+
+### Workflows vs skills
+CloudKey's phase skills are for **interactive, reviewed** development — Claude follows them turn by
+turn. For **wide, deterministic** tasks (audit every file, migrate across the repo, cross-checked
+research), use `/audit`, which triggers a [dynamic workflow](https://code.claude.com/docs/en/workflows):
+a JS orchestration script the runtime runs in the background across dozens–hundreds of agents, keeping
+intermediate results out of context. Run it, then save the run with `/workflows` → `s` for reuse.
 
 ### Agents
 - **architect** — read-only design pass for a feature.
