@@ -1,7 +1,7 @@
 {
   "name": "cloudkey",
   "displayName": "CloudKey",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Phase-based, multi-platform development toolkit for Claude Code. SDLC phase skills (plan, scaffold, implement, test, review, deploy) plus dedicated Shopify, Next.js, AI/LLM, and code-indexing skills and agents.",
   "author": {
     "name": "webdevdot",

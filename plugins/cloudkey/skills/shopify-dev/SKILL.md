@@ -17,5 +17,9 @@ Routing — pick the right surface, then defer to the installed Shopify skills f
 - **Admin/Checkout/POS UI extensions** → the matching `shopify-polaris-*` / `shopify-pos-ui` skill
 - **Scaffolding** a new app/theme/extension → Shopify CLI (`shopify app|theme init`), see `shopify-onboarding-dev`
 
-Always verify API syntax against the installed Shopify skill — do not rely on memory for GraphQL fields.
+## Verify against live schema (bundled MCP)
+CloudKey bundles the official **Shopify Dev MCP** (`@shopify/dev-mcp`, read-only, no auth). Use it to
+introspect the current Admin/Storefront GraphQL schema and search Shopify docs before writing queries —
+never rely on memory for GraphQL fields. If the `shopify-plugin` is installed, its API-specific skills
+(`shopify-admin`, `shopify-liquid`, …) are the authoritative source; this skill routes to them.
 For non-Shopify libraries used alongside (e.g. a frontend lib), use Context7 via `find-docs`.

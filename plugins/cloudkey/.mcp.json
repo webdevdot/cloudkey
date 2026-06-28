@@ -10,6 +10,10 @@
       "env": {
         "GITHUB_TOKEN": "${GITHUB_TOKEN}"
       }
+    },
+    "shopify-dev": {
+      "command": "npx",
+      "args": ["-y", "@shopify/dev-mcp@latest"]
     }
   }
 }

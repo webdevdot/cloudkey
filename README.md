@@ -65,6 +65,8 @@ intermediate results out of context. Run it, then save the run with `/workflows`
   the public tier. The `nextjs-dev`, `ai-app-dev`, and `design` skills route to it for current API syntax.
 - **github** (`@modelcontextprotocol/server-github`) — PRs, issues, code search. Reads its token from
   the `GITHUB_TOKEN` env var (never stored in the plugin). Without a token it works for public reads.
+- **shopify-dev** (`@shopify/dev-mcp`) — official Shopify Dev MCP: live Admin/Storefront GraphQL schema
+  introspection + docs search. Read-only, no auth. Powers the `/shopify-dev` skill's schema verification.
 
 > **Not bundled on purpose:** a database MCP (Postgres/SQLite). It needs a per-project connection
 > string that doesn't belong in a shared plugin. Add it per-project when you need it:
