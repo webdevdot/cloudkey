@@ -31,6 +31,18 @@ One plugin, organized by SDLC phase, with dedicated skills for the platforms you
 | `/code-index` | Symbol & semantic search before changing code (uses the `indexer` agent) |
 | `/design` | UI/UX: Figma↔code via Figma MCP + web interface best practices (uses `design-reviewer`) |
 | `/audit` | Run a wide, repo-scale task as a **dynamic workflow** (high fan-out, runs in background) |
+| `/orchestrate` | The **conductor** — runs a feature end to end, delegating each phase to the right agent |
+
+### The Code Agent Orchestra
+`/orchestrate` is the conductor: it holds the plan and decides which agent plays next, threading a
+feature through plan → design → implement → test → review → deploy with **explicit handoffs**. What
+makes the multi-agent loop actually work, and is enforced by the skill:
+- **One writer** — only the `coder` agent edits code; testers/reviewers are read-only.
+- **Narrow context** — each agent gets only the artifact it needs (diff, failing output, frame).
+- **Typed handoffs** — every phase ends with a concrete artifact the next phase consumes.
+- **Stop conditions** — done = lint+test+build green AND review PASS; no looping the same failure twice.
+- **Persistent agent memory** — `architect`, `indexer`, and `design-reviewer` carry `memory: project`,
+  so they recall this repo's patterns and recurring issues across runs (`.claude/agent-memory/`).
 
 ### Workflows vs skills
 CloudKey's phase skills are for **interactive, reviewed** development — Claude follows them turn by

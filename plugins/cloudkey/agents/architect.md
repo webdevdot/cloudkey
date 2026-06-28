@@ -3,6 +3,7 @@ name: architect
 description: Designs a focused implementation approach for a feature before code is written. Returns a step-by-step design, not code.
 tools: Read, Grep, Glob
 model: sonnet
+memory: project
 ---
 
 You are the **Architect** in the CloudKey SDLC.

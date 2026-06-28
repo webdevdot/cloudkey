@@ -3,6 +3,7 @@ name: indexer
 description: Read-only fan-out search agent. Sweeps a codebase and returns the locations of symbols, patterns, and call sites — paths and conclusions, not file dumps.
 tools: Read, Grep, Glob
 model: haiku
+memory: project
 ---
 
 You are the **Indexer** in the CloudKey SDLC.
