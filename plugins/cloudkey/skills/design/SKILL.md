@@ -26,6 +26,9 @@ Check the work against these before handing to `/implement` or `/review`:
 - **Composition**: compound components + context over boolean-prop proliferation; explicit variants.
 
 ## Routing
+- **shadcn/ui components** (React/Next.js): use the connected `shadcn` MCP to browse the registry and
+  add components (e.g. "add the button/dialog component"). Requires a shadcn-initialized project
+  (`npx shadcn@latest init`, which creates `components.json`).
 - Component/design-system specifics for a platform → defer to `/shopify-dev` (Polaris) or `/nextjs-dev`.
 - Verify any framework/styling API (Tailwind, CSS APIs, a UI lib) against live docs via `find-docs`.
 - For a focused interface critique, delegate to the `design-reviewer` agent.
