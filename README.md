@@ -29,6 +29,8 @@ One plugin, organized by SDLC phase, with dedicated skills for the platforms you
 | `/nextjs-dev` | App Router, server components, Route Handlers, Vercel |
 | `/ai-app-dev` | Claude API, agents, tool use, RAG, prompt design |
 | `/code-index` | Symbol & semantic search before changing code (uses the `indexer` agent) |
+| `/document` | Generate/update docs (README, API ref, doc comments) accurate to the code |
+| `/refactor` | Behavior-preserving cleanup; tests stay green throughout |
 | `/design` | UI/UX: Figma↔code via Figma MCP + web interface best practices (uses `design-reviewer`) |
 | `/audit` | Run a wide, repo-scale task as a **dynamic workflow** (high fan-out, runs in background) |
 | `/orchestrate` | The **conductor** — runs a feature end to end, delegating each phase to the right agent |
@@ -55,11 +57,19 @@ intermediate results out of context. Run it, then save the run with `/workflows`
 - **architect** — read-only design pass for a feature.
 - **indexer** — fast read-only fan-out codebase search.
 - **design-reviewer** — read-only UI/UX critique (a11y, responsiveness, states, composition).
+- **debugger** — systematic root-cause debugging (reproduce → isolate → confirm → propose fix).
+- **security-reviewer** — read-only security review (injection, authz, secrets, deps).
 
 ### Bundled MCP
 - **context7** (`@upstash/context7-mcp`) — live, version-correct library docs. Free, no API key for
-  the public tier. Ships with the plugin so it's self-contained: the `nextjs-dev`, `ai-app-dev`, and
-  `design` skills route to it for current API syntax instead of relying on stale training data.
+  the public tier. The `nextjs-dev`, `ai-app-dev`, and `design` skills route to it for current API syntax.
+- **github** (`@modelcontextprotocol/server-github`) — PRs, issues, code search. Reads its token from
+  the `GITHUB_TOKEN` env var (never stored in the plugin). Without a token it works for public reads.
+
+> **Not bundled on purpose:** a database MCP (Postgres/SQLite). It needs a per-project connection
+> string that doesn't belong in a shared plugin. Add it per-project when you need it:
+> `claude mcp add --scope local postgres -- npx -y @modelcontextprotocol/server-postgres "$DATABASE_URL"`.
+> This keeps CloudKey's tool surface lean — bundling DB tools into every install would hurt tool selection.
 
 ## Design notes
 - **Phase-based, not a tool dump.** ~12 focused skills instead of hundreds, to avoid tool bloat that
