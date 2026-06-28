@@ -10,10 +10,11 @@
   "homepage": "https://github.com/webdevdot/cloudkey",
   "repository": "https://github.com/webdevdot/cloudkey",
   "license": "MIT",
-  "keywords": ["sdlc", "shopify", "nextjs", "ai", "code-index", "phases", "agents"],
+  "keywords": ["sdlc", "shopify", "nextjs", "ai", "code-index", "design", "ui", "ux", "figma", "phases", "agents"],
   "skills": "./skills/",
   "agents": [
     "./agents/architect.md",
-    "./agents/indexer.md"
+    "./agents/indexer.md",
+    "./agents/design-reviewer.md"
   ]
 }

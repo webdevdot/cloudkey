@@ -29,10 +29,12 @@ One plugin, organized by SDLC phase, with dedicated skills for the platforms you
 | `/nextjs-dev` | App Router, server components, Route Handlers, Vercel |
 | `/ai-app-dev` | Claude API, agents, tool use, RAG, prompt design |
 | `/code-index` | Symbol & semantic search before changing code (uses the `indexer` agent) |
+| `/design` | UI/UX: Figma↔code via Figma MCP + web interface best practices (uses `design-reviewer`) |
 
 ### Agents
 - **architect** — read-only design pass for a feature.
 - **indexer** — fast read-only fan-out codebase search.
+- **design-reviewer** — read-only UI/UX critique (a11y, responsiveness, states, composition).
 
 ## Design notes
 - **Phase-based, not a tool dump.** ~12 focused skills instead of hundreds, to avoid tool bloat that
